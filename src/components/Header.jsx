@@ -1,19 +1,11 @@
 import Clock from '../utils/Clock'
 import './Header.css'
+import Lifebar from './Lifebar'
 
 function Header() {
   return (
     <header>
-        <div className='life-bar'>
-            <div className='div-life' />
-            <div className='div-life' />
-            <div className='div-life' />
-            <div className='div-life' />
-            <div className='div-life' />
-            <div className='div-life' />
-            <div className='div-life' />
-            <div className='div-life' />
-        </div>
+        <Lifebar />
         <Clock />
     </header>
   )

@@ -1,5 +1,4 @@
 .life-bar {
-    border: 1px solid white;
     width: 200px;
     height: 30px;
     display: flex;
@@ -7,6 +6,9 @@
 
 .div-life {
     height: 30px;
-    border: 1px solid white;
     width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
 }

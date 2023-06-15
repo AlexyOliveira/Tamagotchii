@@ -1,0 +1,14 @@
+.hunger-bar {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+}
+
+.hunger-bar-container {
+    display: flex;
+    align-items: center;
+}
+
+.hunger-text {
+    margin-right: 5px;
+}

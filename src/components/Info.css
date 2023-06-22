@@ -12,3 +12,11 @@
 .hunger-text {
     margin-right: 5px;
 }
+
+.red {
+    background-color: red;
+}
+
+.dropdown-item {
+    cursor: default;
+}

@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Info.css";
 import { useSelector } from "react-redux";
 
 function Info() {
-  const [age, setAge] = useState(0);
-  const [day, setDay] = useState(0);
-  const meuEstado = useSelector((state) => state.setPokeInfoReducer.age);
-  const meuEstado2 = useSelector((state) => state.setPokeInfoReducer.day);
-
-  useEffect(() => {
-    setAge(meuEstado);
-    setDay(meuEstado2);
-  }, [meuEstado, meuEstado2]);
-
+  const getAge = useSelector((state) => state.setPokeInfoReducer.age);
+  const getDay = useSelector((state) => state.setPokeInfoReducer.day);
+  const getHunger = useSelector((state) => state.setPokeInfoReducer.hunger);
   return (
     <div>
       <div className="btn-group">
@@ -26,16 +19,16 @@ function Info() {
         </button>
         <ul className="dropdown-menu">
           <li className="dropdown-item">NAME: Pikachu</li>
-          <li className="dropdown-item">AGE: {age}</li>
-          <li className="dropdown-item">DAY: {day}</li>
+          <li className="dropdown-item">AGE: {getAge}</li>
+          <li className="dropdown-item">DAY: {getDay}</li>
           <li className="dropdown-item">
             <div className="hunger-bar-container">
-              <span className="hunger-text">HUNGER:</span>
-              <div className="hunger-bar" />
-              <div className="hunger-bar" />
-              <div className="hunger-bar" />
-              <div className="hunger-bar" />
-              <div className="hunger-bar" />
+              <span className="hunger-text">HUNGER:{getHunger}</span>
+              <div className={getHunger >= 1 ? "hunger-bar red" : "hunger-bar"} />
+              <div className={getHunger >= 2 ? "hunger-bar red" : "hunger-bar"} />
+              <div className={getHunger >= 3 ? "hunger-bar red" : "hunger-bar"} />
+              <div className={getHunger >= 4 ? "hunger-bar red" : "hunger-bar"} />
+              <div className={getHunger === 5 ? "hunger-bar red" : "hunger-bar"} />
             </div>
           </li>
         </ul>

@@ -1,9 +1,10 @@
-import { SET_HOURS, SET_AGE, SET_DAY } from "../actions";
+import { SET_HOURS, SET_AGE, SET_DAY,SET_HUNGER } from "../actions";
 
 const INITIAL_STATE = {
   hour: 0,
   age: 0,
   day: 1,
+  hunger: 5,
 };
 
 const setPokeInfoReducer = (state = INITIAL_STATE, action) => {
@@ -24,6 +25,11 @@ const setPokeInfoReducer = (state = INITIAL_STATE, action) => {
         day: state.day <= 6 ? state.day + action.payload : 1,
         age: state.day === 7 ? state.age + 1 : state.age,
       };
+      case SET_HUNGER:
+        return {
+          ...state,
+          hunger: state.hunger - 1
+        };
     default:
       return state;
   }

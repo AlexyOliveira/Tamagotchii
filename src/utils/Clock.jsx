@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Clock.css";
 import { useDispatch } from "react-redux";
-import { setHours } from "../redux/actions";
+import { setDay, setHours } from "../redux/actions";
 
 function Clock() {
   const [time, setTime] = useState({
@@ -27,7 +27,7 @@ function Clock() {
         minutes:
           prevTime.minutes === 60 ? (prevTime.minutes = 0) : prevTime.minutes,
       }));
-    }, 4000);
+    }, 1);
 
     return () => {
       clearInterval(timer);
@@ -35,37 +35,42 @@ function Clock() {
   }, []);
 
   useEffect(() => {
-    time.hours === 17
-      ? get_environment.classList.add("night-17")
-      : get_environment.classList.remove("night-17");
-    time.hours === 18
-      ? get_environment.classList.add("night-18")
-      : get_environment.classList.remove("night-18");
-    time.hours === 19
-      ? get_environment.classList.add("night-19")
-      : get_environment.classList.remove("night-19");
-    time.hours === 20
-      ? get_environment.classList.add("night-20")
-      : get_environment.classList.remove("night-20");
-    time.hours > 20 || time.hours < 6
-      ? get_environment.classList.add("night")
-      : get_environment.classList.remove("night");
+    if (time.hours > 0) {
+      time.hours === 17
+        ? get_environment.classList.add("night-17")
+        : get_environment.classList.remove("night-17");
+      time.hours === 18
+        ? get_environment.classList.add("night-18")
+        : get_environment.classList.remove("night-18");
+      time.hours === 19
+        ? get_environment.classList.add("night-19")
+        : get_environment.classList.remove("night-19");
+      time.hours === 20
+        ? get_environment.classList.add("night-20")
+        : get_environment.classList.remove("night-20");
+      time.hours > 20 || time.hours < 6
+        ? get_environment.classList.add("night")
+        : get_environment.classList.remove("night");
 
-    time.hours === 6
-      ? get_environment.classList.add("morning-6")
-      : get_environment.classList.remove("morning-6");
-    time.hours === 7
-      ? get_environment.classList.add("morning-7")
-      : get_environment.classList.remove("morning-7");
-    time.hours === 8
-      ? get_environment.classList.add("morning-8")
-      : get_environment.classList.remove("morning-8");
-    time.hours === 9
-      ? get_environment.classList.add("morning-9")
-      : get_environment.classList.remove("morning-9");
+      time.hours === 6
+        ? get_environment.classList.add("morning-6")
+        : get_environment.classList.remove("morning-6");
+      time.hours === 7
+        ? get_environment.classList.add("morning-7")
+        : get_environment.classList.remove("morning-7");
+      time.hours === 8
+        ? get_environment.classList.add("morning-8")
+        : get_environment.classList.remove("morning-8");
+      time.hours === 9
+        ? get_environment.classList.add("morning-9")
+        : get_environment.classList.remove("morning-9");
+    }
 
     dispatch(setHours(time.hours));
-  }, [time.hours, dispatch, get_environment]);
+    if (time.hours === 23 && time.minutes === 59) {
+      dispatch(setDay(1));
+    }
+  }, [time.hours, dispatch, get_environment, time.minutes]);
   return (
     <div className="timer">
       <p>{`${

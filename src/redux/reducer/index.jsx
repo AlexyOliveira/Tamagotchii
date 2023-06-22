@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import setHoursReducer from './setHoursReducer';
+import setPokeInfoReducer from './setPokeInfoReducer';
 
 const rootReducer = combineReducers({
-  setHoursReducer,
+  setPokeInfoReducer,
 });
 
 export default rootReducer;

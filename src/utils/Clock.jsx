@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Clock.css";
-import { useDispatch } from "react-redux";
-import { setDay, setHunger } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { setDay, setHungerSub } from "../redux/actions";
 
 function Clock() {
   const [time, setTime] = useState({
@@ -9,7 +9,8 @@ function Clock() {
     minutes: 0,
   });
   const dispatch = useDispatch();
-  const get_environment = document.getElementById("environment");
+  const get_environment = document.getElementById("center");
+  const getHunger = useSelector((state) => state.setPokeInfoReducer.hunger);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,7 +28,7 @@ function Clock() {
         minutes:
           prevTime.minutes === 60 ? (prevTime.minutes = 0) : prevTime.minutes,
       }));
-    }, 100);
+    }, 2200);
 
     return () => {
       clearInterval(timer);
@@ -69,8 +70,8 @@ function Clock() {
     if (time.hours === 23 && time.minutes === 59) {
       dispatch(setDay(1));
     }
-    if (time.minutes === 59) {
-      dispatch(setHunger());
+    if (time.minutes === 59 && getHunger > 0) {
+      dispatch(setHungerSub());
     }
   }, [time.hours, dispatch, get_environment, time.minutes]);
   return (

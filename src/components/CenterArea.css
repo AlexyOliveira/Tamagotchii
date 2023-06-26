@@ -1,0 +1,60 @@
+.center-area {
+  height: 100%;
+  width: 100%;
+  background-image: url("../img/landscape.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0);
+  transition: 2s;
+}
+
+.night-17 {
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0.1);
+  transition: 2s;
+}
+
+.night-18 {
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0.3);
+  transition: 2s;
+}
+
+.night-19 {
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0.5);
+  transition: 2s;
+}
+
+.night-20 {
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0.7);
+  transition: 2s;
+}
+
+.night {
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0.9);
+  transition: 2s;
+}
+
+.morning-6 {
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0.7);
+  transition: 2s;
+}
+
+.morning-7 {
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0.5);
+  transition: 2s;
+}
+
+.morning-8 {
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0.3);
+  transition: 2s;
+}
+
+.morning-9 {
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0.1);
+  transition: 2s;
+}
+
+.morning-10 {
+  box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0);
+  transition: 2s;
+}

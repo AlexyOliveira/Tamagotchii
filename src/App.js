@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import "./App.css";
-import Character from "./components/Character";
 import Footer from "./components/Footer";
+import CenterArea from "./components/CenterArea";
 import Header from "./components/Header";
 import Rip from "./components/Rip";
 
@@ -10,9 +10,9 @@ function App() {
   return (
     <>
       {getLife > 0 ? (
-        <div id="environment" className="App">
+        <div className="App">
           <Header />
-          <Character />
+          <CenterArea />
           <Footer />
         </div>
       ) : (

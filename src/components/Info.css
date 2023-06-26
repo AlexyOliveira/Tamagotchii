@@ -1,22 +1,23 @@
 .hunger-bar {
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
 }
 
 .hunger-bar-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
 
 .hunger-text {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .red {
-    background-color: red;
+  background-color: red;
 }
 
 .dropdown-item {
-    cursor: default;
+  cursor: default;
 }

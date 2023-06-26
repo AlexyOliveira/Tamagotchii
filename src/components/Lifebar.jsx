@@ -8,12 +8,12 @@ function Lifebar() {
   const getLife = useSelector((state) => state.setPokeInfoReducer.life);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (getHunger <= 0) {
+    if (getHunger === 0 && getLife > 0) {
       setTimeout(() => {
         dispatch(setLife());
       }, 3000);
     }
-  }, [getHunger, dispatch]);
+  }, [getHunger, dispatch, getLife]);
   return (
     <div className="life-bar">
       {getLife >= 1 ? (

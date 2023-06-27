@@ -1,5 +1,5 @@
 import React from 'react'
-import character from '../img/pikachu.gif'
+import character from '../img/pikachu-2.gif'
 import './Character.css'
 
 function Character() {

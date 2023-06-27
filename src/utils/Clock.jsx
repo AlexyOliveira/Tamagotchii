@@ -5,7 +5,7 @@ import { setDay, setHungerSub } from "../redux/actions";
 
 function Clock() {
   const [time, setTime] = useState({
-    hours: 0,
+    hours: 12,
     minutes: 0,
   });
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function Clock() {
         minutes:
           prevTime.minutes === 60 ? (prevTime.minutes = 0) : prevTime.minutes,
       }));
-    }, 4000);
+    }, 3000);
 
     return () => {
       clearInterval(timer);
@@ -36,7 +36,7 @@ function Clock() {
   }, []);
 
   useEffect(() => {
-    if (time.hours > 0) {
+    if (time.minutes > 0) {
       time.hours === 17
         ? get_environment.classList.add("night-17")
         : get_environment.classList.remove("night-17");

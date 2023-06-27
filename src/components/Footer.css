@@ -16,6 +16,10 @@ footer {
   width: 60px;
 }
 
+.syringe-btn {
+  width: 50px;
+}
+
 footer img {
   cursor: pointer;
 }

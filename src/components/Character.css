@@ -1,6 +1,7 @@
 .character-container {
     align-self: center;
     margin-top: 220px;
+    transition: 2s;
 }
 
 .character-container img {

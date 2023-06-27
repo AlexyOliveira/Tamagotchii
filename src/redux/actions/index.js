@@ -3,6 +3,8 @@ export const SET_AGE = "SET_AGE";
 export const SET_DAY = "SET_DAY";
 export const SET_HUNGER_ADD = "SET_HUNGER_ADD";
 export const SET_HUNGER_SUB = "SET_HUNGER_SUB";
+export const SET_ENERGY_ADD = "SET_ENERGY_ADD";
+export const SET_ENERGY_SUB = "SET_ENERGY_SUB";
 export const SET_LIFE = "SET_LIFE";
 export const SET_AREA = "SET_AREA";
 
@@ -33,6 +35,16 @@ export const setHungerAdd = (payload) => ({
 
 export const setHungerSub = (payload) => ({
   type: SET_HUNGER_SUB,
+  payload,
+});
+
+export const setEnergyAdd = (payload) => ({
+  type: SET_ENERGY_ADD,
+  payload,
+});
+
+export const setEnergySub = (payload) => ({
+  type: SET_ENERGY_SUB,
   payload,
 });
 

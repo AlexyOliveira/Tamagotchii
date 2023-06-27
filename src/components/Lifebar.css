@@ -1,14 +1,22 @@
 .life-bar {
-    width: 200px;
-    height: 30px;
-    display: flex;
+  width: 200px;
+  height: 30px;
+  display: flex;
 }
 
-.div-life {
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: red;
+.div-life-red {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+.div-life-empty {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.066);
 }

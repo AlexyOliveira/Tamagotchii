@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Clock.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setDay, setHungerSub } from "../redux/actions";
+import { setDay, setHours, setHungerSub } from "../redux/actions";
 
 function Clock() {
   const [time, setTime] = useState({
@@ -72,6 +72,9 @@ function Clock() {
     }
     if (time.minutes === 59 && getHunger > 0) {
       dispatch(setHungerSub());
+    }
+    if (time.minutes === 0) {
+      dispatch(setHours(time.hours));
     }
   }, [time.hours, dispatch, get_environment, time.minutes]);
   return (

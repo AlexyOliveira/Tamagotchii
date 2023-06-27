@@ -5,14 +5,17 @@ import {
   SET_HUNGER_ADD,
   SET_HUNGER_SUB,
   SET_LIFE,
+  SET_ENERGY_ADD,
+  SET_ENERGY_SUB,
 } from "../actions";
 
 const INITIAL_STATE = {
-  hour: 0,
+  hour: 12,
   age: 0,
   day: 1,
   hunger: 5,
   life: 8,
+  energy: 5,
 };
 
 const setPokeInfoReducer = (state = INITIAL_STATE, action) => {
@@ -42,6 +45,16 @@ const setPokeInfoReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         hunger: state.hunger === 0 ? 0 : state.hunger - 1,
+      };
+    case SET_ENERGY_ADD:
+      return {
+        ...state,
+        energy: state.energy === 5 ? 5 : state.energy + 1,
+      };
+    case SET_ENERGY_SUB:
+      return {
+        ...state,
+        energy: state.energy === 0 ? 0 : state.energy - 1,
       };
     case SET_LIFE:
       return {

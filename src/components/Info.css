@@ -1,7 +1,8 @@
 .hunger-bar {
   width: 20px;
   height: 20px;
-  border: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .hunger-bar-container {
@@ -20,4 +21,12 @@
 
 .dropdown-item {
   cursor: default;
+}
+
+.bord-left {
+  border-left: 1px solid black;
+}
+
+.bord-right {
+  border-right: 1px solid black;
 }

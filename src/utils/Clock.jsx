@@ -28,7 +28,7 @@ function Clock() {
         minutes:
           prevTime.minutes === 60 ? (prevTime.minutes = 0) : prevTime.minutes,
       }));
-    }, 3000);
+    }, 30);
 
     return () => {
       clearInterval(timer);

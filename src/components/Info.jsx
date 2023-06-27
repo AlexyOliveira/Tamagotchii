@@ -47,7 +47,11 @@ function Info() {
             <div className="hunger-bar-container">
               <span className="hunger-text">HUNGER:{getHunger}</span>
               <div
-                className={getHunger >= 1 ? "hunger-bar red" : "hunger-bar"}
+                className={
+                  getHunger >= 1
+                    ? "hunger-bar red bord-left"
+                    : "hunger-bar bord-left"
+                }
               />
               <div
                 className={getHunger >= 2 ? "hunger-bar red" : "hunger-bar"}
@@ -59,13 +63,21 @@ function Info() {
                 className={getHunger >= 4 ? "hunger-bar red" : "hunger-bar"}
               />
               <div
-                className={getHunger === 5 ? "hunger-bar red" : "hunger-bar"}
+                className={
+                  getHunger === 5
+                    ? "hunger-bar red bord-right"
+                    : "hunger-bar bord-right"
+                }
               />
             </div>
             <div className="hunger-bar-container">
               <span className="hunger-text">ENERGY{getEnergy}: </span>
               <div
-                className={getEnergy >= 1 ? "hunger-bar red" : "hunger-bar"}
+                className={
+                  getEnergy >= 1
+                    ? "hunger-bar red bord-left"
+                    : "hunger-bar bord-left"
+                }
               />
               <div
                 className={getEnergy >= 2 ? "hunger-bar red" : "hunger-bar"}
@@ -77,7 +89,11 @@ function Info() {
                 className={getEnergy >= 4 ? "hunger-bar red" : "hunger-bar"}
               />
               <div
-                className={getEnergy === 5 ? "hunger-bar red" : "hunger-bar"}
+                className={
+                  getEnergy === 5
+                    ? "hunger-bar red bord-right"
+                    : "hunger-bar bord-right"
+                }
               />
             </div>
           </li>

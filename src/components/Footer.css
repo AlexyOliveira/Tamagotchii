@@ -15,3 +15,7 @@ footer {
 .games-btn {
   width: 60px;
 }
+
+footer img {
+  cursor: pointer;
+}

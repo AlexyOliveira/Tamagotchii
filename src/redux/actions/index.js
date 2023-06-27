@@ -4,6 +4,12 @@ export const SET_DAY = "SET_DAY";
 export const SET_HUNGER_ADD = "SET_HUNGER_ADD";
 export const SET_HUNGER_SUB = "SET_HUNGER_SUB";
 export const SET_LIFE = "SET_LIFE";
+export const SET_AREA = "SET_AREA";
+
+export const setArea = (payload) => ({
+  type: SET_AREA,
+  payload,
+});
 
 export const setHours = (payload) => ({
   type: SET_HOURS,

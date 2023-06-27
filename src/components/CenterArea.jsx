@@ -2,13 +2,19 @@ import React from "react";
 import Character from "./Character";
 import "./CenterArea.css";
 import Food from "./Food";
+import { useSelector } from "react-redux";
 
-function centerArea() {
+function CenterArea() {
+  const getArea = useSelector((state) => state.setPokeAreaReducer.area);
   return (
     <div id="center" className="center-area">
-      <Food />
+      {getArea === "home" ? (
+        <Character />
+      ) : getArea === "food" ? (
+        <Food />
+      ) : null}
     </div>
   );
 }
 
-export default centerArea;
+export default CenterArea;

@@ -3,7 +3,7 @@ import "./Footer.css";
 import food from "../img/refrigerator.png";
 import games from "../img/games.png";
 import home from "../img/home.png";
-import syringe from '../img/syringe.png';
+import syringe from "../img/syringe.png";
 import { useDispatch } from "react-redux";
 import { setArea } from "../redux/actions";
 

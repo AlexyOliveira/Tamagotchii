@@ -7,14 +7,19 @@ import { useDispatch } from "react-redux";
 import { setArea } from "../redux/actions";
 
 function Footer() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const handleClick = ({target}) => {
-    dispatch(setArea(target.alt))
-  }
+  const handleClick = ({ target }) => {
+    dispatch(setArea(target.alt));
+  };
   return (
     <footer>
-      <img onClick={(e) => handleClick(e)} className="food-btn" src={food} alt="food" />
+      <img
+        onClick={(e) => handleClick(e)}
+        className="food-btn"
+        src={food}
+        alt="food"
+      />
       <img onClick={(e) => handleClick(e)} src={home} alt="home" />
       <img className="games-btn" src={games} alt="games" />
     </footer>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Info.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setEnergySub } from "../redux/actions";
+import { setEnergySub, setHungerSub } from "../redux/actions";
 
 function Info() {
   const getAge = useSelector((state) => state.setPokeInfoReducer.age);
@@ -9,23 +9,19 @@ function Info() {
   const getHunger = useSelector((state) => state.setPokeInfoReducer.hunger);
   const getHour = useSelector((state) => state.setPokeInfoReducer.hour);
   const getEnergy = useSelector((state) => state.setPokeInfoReducer.energy);
+  const getSleepToggle = useSelector(
+    (state) => state.setPokeAreaReducer.sleepToggle
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (getHour === 13) {
-      dispatch(setEnergySub());
+    if (!getSleepToggle) {
+      if (getHour >= 13 && getHour % 3 === 2) {
+        dispatch(setEnergySub());
+      }
     }
-    if (getHour === 15) {
-      dispatch(setEnergySub());
-    }
-    if (getHour === 18) {
-      dispatch(setEnergySub());
-    }
-    if (getHour === 21) {
-      dispatch(setEnergySub());
-    }
-    if (getHour === 0) {
-      dispatch(setEnergySub());
+    if (getHour % 3 === 2) {
+      dispatch(setHungerSub());
     }
   }, [getHour]);
   return (

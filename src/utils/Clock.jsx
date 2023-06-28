@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Clock.css";
-import { useDispatch, useSelector } from "react-redux";
-import { setDay, setHours, setHungerSub } from "../redux/actions";
+import { useDispatch } from "react-redux";
+import { setDay, setHours } from "../redux/actions";
 
 function Clock() {
   const [time, setTime] = useState({
@@ -9,8 +9,7 @@ function Clock() {
     minutes: 0,
   });
   const dispatch = useDispatch();
-  const get_environment = document.getElementById("center");
-  const getHunger = useSelector((state) => state.setPokeInfoReducer.hunger);
+  const get_environment = document.querySelectorAll("#center");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -36,43 +35,43 @@ function Clock() {
   }, []);
 
   useEffect(() => {
-    if (time.minutes > 0) {
-      time.hours === 17
-        ? get_environment.classList.add("night-17")
-        : get_environment.classList.remove("night-17");
-      time.hours === 18
-        ? get_environment.classList.add("night-18")
-        : get_environment.classList.remove("night-18");
-      time.hours === 19
-        ? get_environment.classList.add("night-19")
-        : get_environment.classList.remove("night-19");
-      time.hours === 20
-        ? get_environment.classList.add("night-20")
-        : get_environment.classList.remove("night-20");
-      time.hours > 20 || time.hours < 6
-        ? get_environment.classList.add("night")
-        : get_environment.classList.remove("night");
+    get_environment.forEach((env) => {
+      if (time.minutes > 0) {
+        time.hours === 17
+          ? env.classList.add("night-17")
+          : env.classList.remove("night-17");
+        time.hours === 18
+          ? env.classList.add("night-18")
+          : env.classList.remove("night-18");
+        time.hours === 19
+          ? env.classList.add("night-19")
+          : env.classList.remove("night-19");
+        time.hours === 20
+          ? env.classList.add("night-20")
+          : env.classList.remove("night-20");
+        time.hours > 20 || time.hours < 6
+          ? env.classList.add("night")
+          : env.classList.remove("night");
 
-      time.hours === 6
-        ? get_environment.classList.add("morning-6")
-        : get_environment.classList.remove("morning-6");
-      time.hours === 7
-        ? get_environment.classList.add("morning-7")
-        : get_environment.classList.remove("morning-7");
-      time.hours === 8
-        ? get_environment.classList.add("morning-8")
-        : get_environment.classList.remove("morning-8");
-      time.hours === 9
-        ? get_environment.classList.add("morning-9")
-        : get_environment.classList.remove("morning-9");
-    }
+        time.hours === 6
+          ? env.classList.add("morning-6")
+          : env.classList.remove("morning-6");
+        time.hours === 7
+          ? env.classList.add("morning-7")
+          : env.classList.remove("morning-7");
+        time.hours === 8
+          ? env.classList.add("morning-8")
+          : env.classList.remove("morning-8");
+        time.hours === 9
+          ? env.classList.add("morning-9")
+          : env.classList.remove("morning-9");
+      }
+    });
 
     if (time.hours === 23 && time.minutes === 59) {
       dispatch(setDay(1));
     }
-    if (time.minutes === 59 && getHunger > 0) {
-      dispatch(setHungerSub());
-    }
+
     if (time.minutes === 0) {
       dispatch(setHours(time.hours));
     }

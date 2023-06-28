@@ -7,9 +7,15 @@ export const SET_ENERGY_ADD = "SET_ENERGY_ADD";
 export const SET_ENERGY_SUB = "SET_ENERGY_SUB";
 export const SET_LIFE = "SET_LIFE";
 export const SET_AREA = "SET_AREA";
+export const SET_SLEEP_TOGGLE = "SET_SLEEP_TOGGLE";
 
 export const setArea = (payload) => ({
   type: SET_AREA,
+  payload,
+});
+
+export const setSleepToggle = (payload) => ({
+  type: SET_SLEEP_TOGGLE,
   payload,
 });
 

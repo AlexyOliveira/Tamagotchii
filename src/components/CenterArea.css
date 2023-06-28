@@ -1,10 +1,10 @@
 .center-area {
   height: 100%;
   width: 100%;
-  background-image: url("../img/house.jpg");
+  background-image: url("../img/house.png");
   background-repeat: no-repeat;
   background-size: cover;
- 
+
   box-shadow: inset 0 0 50px 2000px rgba(0, 0, 0, 0);
   transition: 2s;
 }

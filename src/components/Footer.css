@@ -20,6 +20,14 @@ footer {
   width: 50px;
 }
 
+.bed-btn {
+  width: 40px;
+}
+
 footer img {
   cursor: pointer;
+}
+
+.btn-sleep-mode {
+  pointer-events: none;
 }

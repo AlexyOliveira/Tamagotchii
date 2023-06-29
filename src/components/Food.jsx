@@ -4,53 +4,74 @@ import donut from "../img/food-donut.png";
 import pizza from "../img/food-pizza.png";
 import pizzaGif from "../img/food-pizza.gif";
 import donutGif from "../img/food-donut.gif";
+import juiceGif from "../img/food-juice.gif";
+import juice from "../img/food-juice.png";
+import waterm from "../img/food-waterm.png";
+import watermGif from "../img/food-waterm.gif";
 import { useDispatch } from "react-redux";
 import { setHungerAdd } from "../redux/actions";
 
 function Food() {
   const [eatToggle, setEatToggle] = useState(false);
   const [chooseEat, setChooseEat] = useState("");
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleClick = ({ target }) => {
-     const previous = document.querySelector("#previous")
-     const next = document.querySelector("#next")
-     const foodImg = document.querySelectorAll('.food')
+    const previous = document.querySelector("#previous");
+    const next = document.querySelector("#next");
+    const foodImg = document.querySelectorAll(".food");
     setEatToggle(true);
     setChooseEat(target.alt);
-    previous.classList.add('hide-previous-next')
-    next.classList.add('hide-previous-next')
+    previous.classList.add("hide-previous-next");
+    next.classList.add("hide-previous-next");
     foodImg.forEach((f) => {
-      f.classList.add('food-img')
-    })
+      f.classList.add("food-img");
+    });
     setTimeout(() => {
       setEatToggle(false);
-      previous.classList.remove('hide-previous-next')
-      next.classList.remove('hide-previous-next')
+      previous.classList.remove("hide-previous-next");
+      next.classList.remove("hide-previous-next");
       foodImg.forEach((f) => {
-        f.classList.remove('food-img')
-      })
+        f.classList.remove("food-img");
+      });
       dispatch(setHungerAdd());
     }, 5000);
-   
   };
   return (
     <div className="food-area">
       <div id="carouselExample" className="carousel slide">
         <div className="carousel-inner">
-          <div className="carousel-item active">
+          <div className="c carousel-item active">
             <img
               onClick={(e) => handleClick(e)}
               src={chooseEat === "pizza" && eatToggle ? pizzaGif : pizza}
-              className="food w-50"
+              className="food"
               alt="pizza"
             />
           </div>
           <div className="carousel-item">
-            <img onClick={(e) => handleClick(e)}
-            src={chooseEat === "donut" && eatToggle ? donutGif : donut} 
-            className="food w-50" 
-            alt="donut" />
+            <img
+              onClick={(e) => handleClick(e)}
+              src={chooseEat === "donut" && eatToggle ? donutGif : donut}
+              className="food w-50"
+              alt="donut"
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              onClick={(e) => handleClick(e)}
+              src={chooseEat === "juice" && eatToggle ? juiceGif : juice}
+              className="food "
+              alt="juice"
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              onClick={(e) => handleClick(e)}
+              src={chooseEat === "waterm" && eatToggle ? watermGif : waterm}
+              className="food "
+              alt="waterm"
+            />
           </div>
         </div>
         <button

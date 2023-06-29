@@ -10,15 +10,15 @@ function Sleep() {
 
   useEffect(() => {
     if (isMounted.current) {
-      dispatch(setEnergyAdd());
+      setInterval(() => {
+        dispatch(setEnergyAdd());
+      }, 180000);
     } else {
       isMounted.current = true;
     }
   }, [dispatch, getHour]);
 
-  return (
-    <div id="center" className="center-are" />
-  );
+  return <div id="center" className="center-are" />;
 }
 
 export default Sleep;

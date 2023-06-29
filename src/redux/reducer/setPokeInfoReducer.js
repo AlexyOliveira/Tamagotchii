@@ -16,6 +16,7 @@ const INITIAL_STATE = {
   hunger: 5,
   life: 8,
   energy: 5,
+  sick: false
 };
 
 const setPokeInfoReducer = (state = INITIAL_STATE, action) => {

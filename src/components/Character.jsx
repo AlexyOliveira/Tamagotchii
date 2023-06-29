@@ -6,9 +6,13 @@ import { useSelector } from "react-redux";
 
 function Character() {
   const getHunger = useSelector((state) => state.setPokeInfoReducer.hunger);
+  const getEnergy = useSelector((state) => state.setPokeInfoReducer.energy);
   return (
     <div className="character-container">
-      <img src={getHunger === 0 ? characterSad : characterHappy} alt="character" />
+      <img
+        src={getHunger === 0 || getEnergy === 0 ? characterSad : characterHappy}
+        alt="character"
+      />
     </div>
   );
 }

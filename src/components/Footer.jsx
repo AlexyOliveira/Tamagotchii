@@ -10,6 +10,9 @@ import { setArea, setSleepToggle } from "../redux/actions";
 
 function Footer() {
   const getArea = useSelector((state) => state.setPokeAreaReducer.area);
+  const getSleepToggle = useSelector(
+    (state) => state.setPokeAreaReducer.sleepToggle
+  );
   const dispatch = useDispatch();
 
   const handleClick = ({ target }) => {
@@ -24,7 +27,11 @@ function Footer() {
     <footer>
       <img
         onClick={(e) => handleClick(e)}
-        className={getArea === "sleep" ? "food-btn btn-sleep-mode" : "food-btn"}
+        className={
+          getArea === "sleep" && getSleepToggle
+            ? "food-btn btn-sleep-mode"
+            : "food-btn"
+        }
         src={food}
         alt="food"
       />

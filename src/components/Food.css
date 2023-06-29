@@ -1,15 +1,23 @@
 .food-area {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(74 73 86);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(74 73 86);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .hide-previous-next {
-    display: none;
+  display: none;
 }
 
 .food-img {
-    pointer-events: none;
+  pointer-events: none;
+}
+
+.food {
+  cursor: pointer;
+}
+
+.carousel-item {
+  width: 590px;
 }

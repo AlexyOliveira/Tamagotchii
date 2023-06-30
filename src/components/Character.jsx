@@ -10,7 +10,7 @@ function Character() {
   return (
     <div className="character-container">
       <img
-        src={getHunger === 1 || getEnergy === 0 ? characterSad : characterHappy}
+        src={getHunger <= 1 || getEnergy === 0 ? characterSad : characterHappy}
         alt="character"
       />
     </div>

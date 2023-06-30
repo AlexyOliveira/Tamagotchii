@@ -6,6 +6,7 @@ export const SET_HUNGER_SUB = "SET_HUNGER_SUB";
 export const SET_ENERGY_ADD = "SET_ENERGY_ADD";
 export const SET_ENERGY_SUB = "SET_ENERGY_SUB";
 export const SET_LIFE = "SET_LIFE";
+export const SET_SICK = "SET_SICK";
 export const SET_AREA = "SET_AREA";
 export const SET_SLEEP_TOGGLE = "SET_SLEEP_TOGGLE";
 
@@ -56,5 +57,10 @@ export const setEnergySub = (payload) => ({
 
 export const setLife = (payload) => ({
   type: SET_LIFE,
+  payload,
+});
+
+export const setSick = (payload) => ({
+  type: SET_SICK,
   payload,
 });

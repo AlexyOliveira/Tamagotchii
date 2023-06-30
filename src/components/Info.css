@@ -1,22 +1,28 @@
 .hunger-bar {
   width: 20px;
-  height: 20px;
+  height: 10px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  background-color: aliceblue;
 }
 
 .hunger-bar-container {
+  padding: 2px;
   display: flex;
   align-items: center;
-  padding: 10px;
+  justify-content: end;
+  background-color: rgba(240, 248, 255, 0.418);
 }
 
 .hunger-text {
   margin-right: 5px;
+  font-weight: 900;
+  color: black;
 }
 
 .red {
   background-color: red;
+  transition: 1s;
 }
 
 .dropdown-item {

@@ -42,7 +42,7 @@ function Footer() {
         alt="sleep"
       />
       <img
-        className={getArea === "sleep" && "btn-sleep-mode"}
+        className={getArea === "sleep" ? "btn-sleep-mode" : undefined}
         onClick={(e) => handleClick(e)}
         src={home}
         alt="home"

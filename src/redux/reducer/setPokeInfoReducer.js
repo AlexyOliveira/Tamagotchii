@@ -7,6 +7,7 @@ import {
   SET_LIFE,
   SET_ENERGY_ADD,
   SET_ENERGY_SUB,
+  SET_SICK,
 } from "../actions";
 
 const INITIAL_STATE = {
@@ -16,7 +17,7 @@ const INITIAL_STATE = {
   hunger: 5,
   life: 8,
   energy: 5,
-  sick: false
+  sickDay: 0,
 };
 
 const setPokeInfoReducer = (state = INITIAL_STATE, action) => {
@@ -61,6 +62,11 @@ const setPokeInfoReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         life: state.life - 1,
+      };
+    case SET_SICK:
+      return {
+        ...state,
+        sickDay: action.payload,
       };
     default:
       return state;

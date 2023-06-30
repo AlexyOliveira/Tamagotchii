@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import "./Sleep.css";
-import { useDispatch, useSelector } from "react-redux";
+import "./CenterArea.css";
+import { useDispatch } from "react-redux";
 import { setEnergyAdd } from "../redux/actions";
 
 function Sleep() {
-  const getHour = useSelector((state) => state.setPokeInfoReducer.hour);
   const dispatch = useDispatch();
   const isMounted = useRef(false);
 
@@ -16,9 +16,9 @@ function Sleep() {
     } else {
       isMounted.current = true;
     }
-  }, [dispatch, getHour]);
+  }, [dispatch]);
 
-  return <div id="center" className="center-are" />;
+  return <div className="sleep-area" />;
 }
 
 export default Sleep;

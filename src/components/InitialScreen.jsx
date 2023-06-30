@@ -6,7 +6,7 @@ import { setHungerSub } from "../redux/actions";
 function InitialScreen() {
   const dispatch = useDispatch();
   useEffect(() => {
-    let times = 4;
+    let times = 5;
     while (times > 0) {
       dispatch(setHungerSub());
       times -= 1;

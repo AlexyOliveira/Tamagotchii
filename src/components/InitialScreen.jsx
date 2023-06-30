@@ -9,7 +9,6 @@ function InitialScreen() {
         let times = 4
         while (times > 0) {
             dispatch(setHungerSub())
-            dispatch(setEnergySub())
             times -= 1
         }
         

@@ -6,7 +6,7 @@ import { setEnergySub, setHungerSub } from "../redux/actions";
 function InitialScreen() {
     const dispatch = useDispatch()
     useEffect(() => {
-        let times = 3
+        let times = 4
         while (times > 0) {
             dispatch(setHungerSub())
             dispatch(setEnergySub())

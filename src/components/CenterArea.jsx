@@ -9,6 +9,8 @@ import InfoBars from "./InfoBars";
 function CenterArea() {
   const getHour = useSelector((state) => state.setPokeInfoReducer.hour);
   const getArea = useSelector((state) => state.setPokeAreaReducer.area);
+  const getDay = useSelector((state) => state.setPokeInfoReducer.day);
+  const getSickDay = useSelector((state) => state.setPokeInfoReducer.sickDay);
   const get_environment = document.querySelector("#center");
   const getSleepToggle = useSelector(
     (state) => state.setPokeAreaReducer.sleepToggle
@@ -56,7 +58,7 @@ function CenterArea() {
         <Character />
       ) : getArea === "food" ? (
         <Food />
-      ) : getArea === "sleep" && getSleepToggle ? (
+      ) : getArea === "sleep" && getSleepToggle && getDay !== getSickDay ? (
         <Sleep />
       ) : (
         <Character />

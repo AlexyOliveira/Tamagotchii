@@ -6,11 +6,13 @@ import { setHungerSub } from "../redux/actions";
 function InitialScreen() {
   const dispatch = useDispatch();
   useEffect(() => {
-    let times = 5;
-    while (times > 0) {
-      dispatch(setHungerSub());
-      times -= 1;
-    }
+    const timer = setInterval(() => {
+      dispatch(setHungerSub());     
+    }, 3000);
+  
+    return () => {
+      clearInterval(timer);
+    };
   }, [dispatch]);
   return <div className="initial-screen"></div>;
 }

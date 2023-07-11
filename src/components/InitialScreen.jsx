@@ -7,11 +7,11 @@ function InitialScreen() {
   const dispatch = useDispatch();
   useEffect(() => {
     const randomNumber = Math.floor(Math.random() * 7) + 1;
-    dispatch(setSick(randomNumber))
+    dispatch(setSick(randomNumber));
     const timer = setInterval(() => {
-      dispatch(setHungerSub());     
+      dispatch(setHungerSub());
     }, 3000);
-  
+
     return () => {
       clearInterval(timer);
     };

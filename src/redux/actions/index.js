@@ -9,6 +9,7 @@ export const SET_LIFE = "SET_LIFE";
 export const SET_SICK = "SET_SICK";
 export const SET_AREA = "SET_AREA";
 export const SET_SLEEP_TOGGLE = "SET_SLEEP_TOGGLE";
+export const SET_SYRINGE_TOGGLE = "SET_SYRINGE_TOGGLE";
 
 export const setArea = (payload) => ({
   type: SET_AREA,
@@ -20,6 +21,10 @@ export const setSleepToggle = (payload) => ({
   payload,
 });
 
+export const setSyringeToggle = (payload) => ({
+  type: SET_SYRINGE_TOGGLE,
+  payload,
+});
 export const setHours = (payload) => ({
   type: SET_HOURS,
   payload,

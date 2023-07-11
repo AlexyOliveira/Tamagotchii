@@ -6,10 +6,17 @@ import home from "../img/home.png";
 import bed from "../img/bed-icon.png";
 import syringe from "../img/syringe.png";
 import { useDispatch, useSelector } from "react-redux";
-import { setArea, setSleepToggle } from "../redux/actions";
+import {
+  setArea,
+  setSick,
+  setSleepToggle,
+  setSyringeToggle,
+} from "../redux/actions";
 
 function Footer() {
   const getArea = useSelector((state) => state.setPokeAreaReducer.area);
+  const getDay = useSelector((state) => state.setPokeInfoReducer.day);
+  const getSickDay = useSelector((state) => state.setPokeInfoReducer.sickDay);
   const getSleepToggle = useSelector(
     (state) => state.setPokeAreaReducer.sleepToggle
   );
@@ -23,6 +30,15 @@ function Footer() {
     dispatch(setArea(target.alt));
     dispatch(setSleepToggle());
   };
+
+  const handleSyringeClick = () => {
+    dispatch(setSyringeToggle(true));
+    const randomNumber = Math.floor(Math.random() * 7) + 1;
+    dispatch(setSick(randomNumber));
+    setInterval(() => {
+      dispatch(setSyringeToggle(false));
+    }, 6000);
+  };
   return (
     <footer>
       <img
@@ -30,13 +46,15 @@ function Footer() {
         className={
           getArea === "sleep" && getSleepToggle
             ? "food-btn btn-sleep-mode"
+            : getSickDay === getDay
+            ? "food-btn btn-sleep-mode"
             : "food-btn"
         }
         src={food}
         alt="food"
       />
       <img
-        className="bed-btn"
+        className={getSickDay === getDay ? "bed-btn btn-sick-mode" : "bed-btn"}
         onClick={(e) => handleSleepClick(e)}
         src={bed}
         alt="sleep"
@@ -47,8 +65,25 @@ function Footer() {
         src={home}
         alt="home"
       />
-      <img className="games-btn" src={games} alt="games" />
-      <img className="syringe-btn" src={syringe} alt="syringe" />
+      <img
+        className={
+          getArea === "sleep" && getSleepToggle
+            ? "games-btn btn-sleep-mode"
+            : getSickDay === getDay
+            ? "games-btn btn-sick-mode"
+            : "games-btn"
+        }
+        src={games}
+        alt="games"
+      />
+      <img
+        className={
+          getDay !== getSickDay ? "syringe-btn btn-sick-mode" : "syringe-btn"
+        }
+        onClick={(e) => handleSyringeClick(e)}
+        src={syringe}
+        alt="syringe"
+      />
     </footer>
   );
 }

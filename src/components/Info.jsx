@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Info.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setEnergySub, setHungerSub } from "../redux/actions";
+import { setAge, setEnergySub, setHungerSub } from "../redux/actions";
 import InfoBars from "./InfoBars";
 
 function Info() {
@@ -38,7 +38,24 @@ function Info() {
         <ul className="dropdown-menu">
           <li className="dropdown-item">NAME: Pikachu</li>
           <li className="dropdown-item">AGE: {getAge}</li>
-          <li className="dropdown-item">DAY: {getDay}</li>
+          <li className="dropdown-item">
+            DAY:{" "}
+            {getDay === 1
+              ? "Monday"
+              : getDay === 2
+              ? "Tuesday"
+              : getDay === 3
+              ? "Wednesday"
+              : getDay === 4
+              ? "Thursday"
+              : getDay === 5
+              ? "Friday"
+              : getDay === 6
+              ? "Saturday"
+              : getDay === 7
+              ? "Sunday"
+              : null}
+          </li>
           <li className="dropdown-item">
             <InfoBars />
           </li>

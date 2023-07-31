@@ -7,3 +7,11 @@
 .character-container img {
   width: 250px;
 }
+
+@media (max-width: 500px) {
+  .character-container {
+   position: absolute;
+    bottom: 58px;
+    left: 70px;
+  }
+}

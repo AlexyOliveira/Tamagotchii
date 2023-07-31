@@ -26,20 +26,21 @@ function Clock() {
         minutes:
           prevTime.minutes === 60 ? (prevTime.minutes = 0) : prevTime.minutes,
       }));
-    }, 2000);
+
+      if (time.hours === 23 && time.minutes === 59) {
+        dispatch(setDay());
+      }
+
+      if (time.minutes === 0) {
+        dispatch(setHours(time.hours));
+      }
+
+    }, 2);
 
     return () => {
       clearInterval(timer);
     };
-  }, []);
-
-  if (time.hours === 23 && time.minutes === 59) {
-    dispatch(setDay(1));
-  }
-
-  if (time.minutes === 0) {
-    dispatch(setHours(time.hours));
-  }
+  }, [time]);
 
   return (
     <div className="timer">
@@ -53,3 +54,4 @@ function Clock() {
 }
 
 export default Clock;
+

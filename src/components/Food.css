@@ -21,3 +21,14 @@
 .carousel-item {
   width: 590px;
 }
+
+@media (max-width: 500px) {
+  .food-area {
+    width: auto;
+    height: 100vh;
+    border: none;
+  }
+  .carousel-item {
+    width: 350px;
+  }
+}

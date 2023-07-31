@@ -30,13 +30,13 @@ const setPokeInfoReducer = (state = INITIAL_STATE, action) => {
     case SET_AGE:
       return {
         ...state,
-        age: state.age + action.payload,
+        age: state.age + 1,
       };
     case SET_DAY:
       return {
         ...state,
-        day: state.day <= 6 ? state.day + action.payload : 1,
-        age: state.day === 7 ? state.age + 1 : state.age,
+        day: state.day % 7 + 1,
+        
       };
     case SET_HUNGER_ADD:
       return {

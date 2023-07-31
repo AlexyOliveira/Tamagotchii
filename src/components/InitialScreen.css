@@ -20,3 +20,10 @@
     box-shadow: inset 0 0 50px 2000px rgba(255, 255, 0, 1);
   }
 }
+
+@media (max-width: 500px) {
+  .initial-screen {
+    height: 100vh;
+    width: 370px;
+  }
+}

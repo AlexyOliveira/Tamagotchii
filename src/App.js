@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Rip from "./components/Rip";
 import { useEffect, useState } from "react";
 import InitialScreen from "./components/InitialScreen";
+import Cards from "./pokemon-game/Cards";
 
 function App() {
   const getLife = useSelector((state) => state.setPokeInfoReducer.life);
@@ -26,6 +27,7 @@ function App() {
             <>
               <Header />
               <CenterArea />
+              <Cards />
               <Footer />
             </>
           )}

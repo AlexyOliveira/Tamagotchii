@@ -15,7 +15,7 @@ function Sleep() {
   useEffect(() => {
     const hourDifference = (getHour - prevHourRef.current + 24) % 24;
     if (getSleepToggle) {
-      if (hourDifference >= 3) {
+      if (hourDifference >= 2) {
         dispatch(setEnergyAdd());
         // Atualiza o valor armazenado em prevHourRef para o novo valor de getHour
         prevHourRef.current = getHour;

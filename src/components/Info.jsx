@@ -24,6 +24,12 @@ function Info() {
     }
   }, [getHour]);
 
+  useEffect(() => {
+    if (getDay === 1) {
+      dispatch(setAge());
+    }
+  }, [getDay]);
+
   return (
     <div>
       <div className="btn-group">

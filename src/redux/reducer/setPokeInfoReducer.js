@@ -12,11 +12,11 @@ import {
 
 const INITIAL_STATE = {
   hour: 12,
-  age: 0,
+  age: -1,
   day: 1,
   hunger: 5,
   life: 8,
-  energy: 5,
+  energy: 2,
   sickDay: 0,
 };
 

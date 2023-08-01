@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./Lifebar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setLife } from "../redux/actions";
@@ -6,14 +6,24 @@ import { setLife } from "../redux/actions";
 function Lifebar() {
   const getHunger = useSelector((state) => state.setPokeInfoReducer.hunger);
   const getLife = useSelector((state) => state.setPokeInfoReducer.life);
+  const getHour = useSelector((state) => state.setPokeInfoReducer.hour);
   const dispatch = useDispatch();
+
+  // Usa useRef para armazenar o valor de getHour
+  const prevHourRef = useRef(getHour);
+
   useEffect(() => {
-    if (getHunger === 0 && getLife > 0) {
-      setTimeout(() => {
-        dispatch(setLife());
-      }, 60000);
+    // Verifica a diferença entre o valor anterior de getHour e o valor atual
+    // Usando o módulo (%) para lidar com a reinicialização do relógio em 24 horas
+    const hourDifference = (getHour - prevHourRef.current + 24) % 24;
+
+    // Se a diferença for maior ou igual a 3 (3 horas passaram), então dispatch(setLife())
+    if (hourDifference >= 3 && getHunger === 0) {
+      dispatch(setLife());
+      // Atualiza o valor armazenado em prevHourRef para o novo valor de getHour
+      prevHourRef.current = getHour;
     }
-  }, [getHunger, dispatch, getLife]);
+  }, [dispatch, getHunger, getHour]);
   return (
     <div className="life-bar">
       {getLife >= 1 ? (

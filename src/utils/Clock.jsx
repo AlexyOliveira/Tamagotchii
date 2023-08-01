@@ -34,8 +34,7 @@ function Clock() {
       if (time.minutes === 0) {
         dispatch(setHours(time.hours));
       }
-
-    }, 2);
+    }, 30);
 
     return () => {
       clearInterval(timer);
@@ -54,4 +53,3 @@ function Clock() {
 }
 
 export default Clock;
-

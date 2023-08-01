@@ -34,7 +34,7 @@ function Clock() {
       if (time.minutes === 0) {
         dispatch(setHours(time.hours));
       }
-    }, 30);
+    }, 300);
 
     return () => {
       clearInterval(timer);

@@ -2,11 +2,14 @@ import { useSelector } from "react-redux";
 import "./App.css";
 import Footer from "./components/Footer";
 import CenterArea from "./components/CenterArea";
+
 import Header from "./components/Header";
 import Rip from "./components/Rip";
 import { useEffect, useState } from "react";
 import InitialScreen from "./components/InitialScreen";
-import Cards from "./pokemon-game/Cards";
+import { Route, Routes } from "react-router-dom";
+import Arena from "./pokemon-game/Arena";
+import TestCards from "./components/TestCards";
 
 function App() {
   const getLife = useSelector((state) => state.setPokeInfoReducer.life);
@@ -17,20 +20,26 @@ function App() {
       setIsIntro(false);
     }, 14000);
   }, []);
+
   return (
     <>
       {getLife > 0 ? (
         <div className="App">
-          {isIntro ? (
-            <InitialScreen />
-          ) : (
-            <>
-              <Header />
-              <CenterArea />
-              <Cards />
-              <Footer />
-            </>
-          )}
+          <>
+            {isIntro ? (
+              <InitialScreen />
+            ) : (
+              <>
+                <Header />
+                <Routes>
+                  <Route path="/" element={<CenterArea />} />
+                  <Route path="/game" element={<Arena />} />
+                  <Route path="/test" element={<TestCards />} />
+                </Routes>
+                <Footer />
+              </>
+            )}
+          </>
         </div>
       ) : (
         <Rip />

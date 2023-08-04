@@ -20,7 +20,6 @@ function Cards() {
       setLoading(true);
       const data = await getAllPokemons();
       setCards(data);
-      console.log(data);
       setLoading(false);
     };
     getCards();
@@ -30,28 +29,26 @@ function Cards() {
     <div>
       {loading ? (
         "carregando.."
-      ) : (
+      ) : 
         <Swiper
           effect={"cards"}
           grabCursor={true}
           modules={[EffectCards]}
           className="mySwiper"
         >
-          {
-             cards.map((a) => (
-            
+        
               <SwiperSlide>
-                <div className="poke-card" key={a.id}>
-                  <h5>{a.name}</h5>
-                  <img src={a.sprites.other.home.front_default} alt="" />
-                  <div className="attack">Attack: {a.base_experience}</div>
+                <div className="poke-card" key={cards[4].id}>
+                  <h5>{cards[4].name}</h5>
+                  <img src={cards[4].sprites.other.home.front_default} alt="" />
+                  <div className="attack">Attack: {cards[4].base_experience}</div>
                 </div>
               </SwiperSlide>
             
-          ))
-          }
+        
+          
         </Swiper>
-      )}
+      }
     </div>
   );
 }
